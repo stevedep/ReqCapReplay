@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Request Capture & Replay",
+  "version": "1.0",
+  "description": "Capture network requests, modify parameters, and replay them for data collection.\nWorks with both fetch and XHR calls.\nEasily configure and download data as JSON.",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["injected.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ]
+}
